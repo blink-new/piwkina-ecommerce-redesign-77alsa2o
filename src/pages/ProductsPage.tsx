@@ -107,13 +107,12 @@ const ProductsPage = ({ language, addToCart }: ProductsPageProps) => {
   }
 
   const filteredProducts = products.filter(product => {
+    const name = language === 'en' ? product.nameEn : product.nameKa
+    const description = language === 'en' ? product.descriptionEn : product.descriptionKa
+    
     const matchesSearch = (
-      (language === 'en' ? product.nameEn : product.nameKa)
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      (language === 'en' ? product.descriptionEn : product.descriptionKa)
-        ?.toLowerCase()
-        .includes(searchTerm.toLowerCase())
+      name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      description?.toLowerCase().includes(searchTerm.toLowerCase())
     )
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
     return matchesSearch && matchesCategory

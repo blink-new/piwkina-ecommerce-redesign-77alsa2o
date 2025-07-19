@@ -194,8 +194,8 @@ const AdminProducts = () => {
   }
 
   const filteredProducts = products.filter(product =>
-    product.nameEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.nameKa.toLowerCase().includes(searchTerm.toLowerCase())
+    product.nameEn?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    product.nameKa?.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   return (
